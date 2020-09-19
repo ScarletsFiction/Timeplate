@@ -44,7 +44,7 @@ function bezier(Crv, t){ // t = 0 ~ 1
 	return Crv.bezierY(t);
 }
 
-function bezierY(Crv){
+function bezierY(t){
 	// Saving my experiment data here for my future sample data reference
 	// on where formula used on this function coming from
 	//
