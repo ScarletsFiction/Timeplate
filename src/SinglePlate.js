@@ -4,6 +4,7 @@ var dummyKeyframe = [{offset:0, dummy:0}, {offset:1, dummy:0}];
 var blankKeyframe = new KeyframeEffect(null, null);
 var animCache = new WeakMap(); // el => {props:anim data}
 
+// To generate single timeline for many elements
 class SinglePlate extends EventPine{
 	keyframes = [];
 	_in = {};
@@ -154,7 +155,7 @@ class SinglePlate extends EventPine{
 
 				ref = data[k];
 				if(ref === void 0)
-					ref = data[k] = new Animation(new KeyframeEffect(target[i], null));
+					ref = data[k] = target[i].animate(null);
 
 				ref.effect.setKeyframes(keyframes[k]);
 			}

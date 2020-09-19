@@ -19,7 +19,7 @@ Being used by StefansArya for some project.<br>
 If you're interested with this library please reach me on GitHub to update the documentation.<br>
 
 ```js
-var plate = new Timeplate(/* Total duration */ 1000);
+var plate = Timeplate.parallel(/* Total duration */ 1000);
 plate.timeline = [
   Timeplate.for(/* El Selector */ '.Apple', /* Keyframes */[
     {offset:0  , translateX: '50px', scaleY: 1, easing: 'ease-in'},

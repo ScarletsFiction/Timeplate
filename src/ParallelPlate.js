@@ -1,4 +1,4 @@
-class Timeplate extends EventPine{
+class ParallelPlate extends EventPine{
 	constructor(duration, timeline){
 		super();
 
@@ -8,10 +8,10 @@ class Timeplate extends EventPine{
 			timeline: [],
 			currentTime: 0,
 			reverse: false,
-			_onemit:function(msg){
+			_onemit(msg){
 				that.emit(msg);
 			},
-			_onfinish:function(){
+			_onfinish(){
 				that.emit('finish');
 			}
 		};
@@ -113,4 +113,10 @@ class Timeplate extends EventPine{
 	restart(){this._proxy('restart')}
 }
 
-Timeplate.proto = {};
+// Save it to proto, if other developer need it
+Timeplate.proto.ParallelPlate = ParallelPlate;
+
+// Shortcut
+Timeplate.parallel = function(element, keyframes, options){
+    return new Timeplate.proto.ParallelPlate(element, keyframes, options);
+}

@@ -6,3 +6,4 @@
 'use strict'; // Module start
 
 var Combiner = {};
+var Timeplate = {proto:{}};
