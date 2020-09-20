@@ -87,6 +87,12 @@ class SeriesPlate extends EventPine{
 		this._in.current.loop = val;
 	}
 
+	get speed(){return this._in.speed}
+	set speed(val){
+		this._in.speed = val;
+		this._proxySet('speed', val);
+	}
+
 	play(){
 		this._refresh();
 		this._in.current.play();

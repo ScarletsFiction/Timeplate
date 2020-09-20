@@ -18,7 +18,7 @@ class ParallelPlate extends EventPine{
 
 		if(duration && duration.constructor === Number)
 			this.duration = duration;
-		if(timeline)
+		if(duration && duration.constructor === Array || timeline)
 			this.timeline = timeline;
 	}
 
@@ -101,6 +101,12 @@ class ParallelPlate extends EventPine{
 	set loop(val){
 		this._in.loop = val;
 		this._proxySet('loop', val);
+	}
+
+	get speed(){return this._in.speed}
+	set speed(val){
+		this._in.speed = val;
+		this._proxySet('speed', val);
 	}
 
 	play(){

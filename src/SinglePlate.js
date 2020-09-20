@@ -22,6 +22,8 @@ class SinglePlate extends EventPine{
 		if(options.fillOffset === void 0)
 			options.fillOffset = defaultOption.fillOffset;
 
+		this._in.speed = 1;
+
 		this.keyframes = keyframes;
 		Object.assign(this._in, options);
 
@@ -122,7 +124,6 @@ class SinglePlate extends EventPine{
 	}
 
 	restart(){
-		this.resetElementData();
 		this._proxySet('currentTime', 0);
 		this.play();
 	}
@@ -155,7 +156,7 @@ class SinglePlate extends EventPine{
 
 				ref = data[k];
 				if(ref === void 0)
-					ref = data[k] = target[i].animate(null);
+					ref = data[k] = new Animation(new KeyframeEffect(target[i], null));
 
 				ref.effect.setKeyframes(keyframes[k]);
 			}
@@ -339,9 +340,14 @@ class SinglePlate extends EventPine{
 				return data[k].currentTime;
 		}
 	}
-
 	set currentTime(val){
 		this._proxySet('currentTime', val);
+	}
+
+	get speed(){return this._in.speed}
+	set speed(val){
+		this._in.playbackRate = val;
+		this._proxySet('playbackRate', val);
 	}
 }
 
