@@ -18,7 +18,7 @@ To avoid error on older browser please put this on your HTML header's script.
 ```js
 if(KeyframeEffect.prototype.setKeyframes === void 0){
   KeyframeEffect.prototype.setKeyframes = function(){}
-  KeyframeEffect.prototype.getKeyframes = function(){return []}
+  KeyframeEffect.prototype.getKeyframes = function(){return [{}]}
 }
 ```
 
